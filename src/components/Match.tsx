@@ -6,7 +6,7 @@ const Match = ({match, index, first}: any) => {
     return (
         <>
             {first && <h2 className="label__rodada">Rodada {index/16 + 1}</h2>}
-            <MatchDiv key={index} >
+            <MatchDiv>
                 <div className="match__info">{DataConversion(match.match_start)}</div>
                 <div className="match__teams">
                     <img className="team__logo" src={match.home_team.logo} alt="" />

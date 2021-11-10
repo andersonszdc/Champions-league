@@ -23,17 +23,18 @@ const GroupStage = () => {
     useEffect(() => {
         const FetchData = async () => {
             const res = await ChampionsMatches()
-            setMatches(res.data.slice(0, 96))
+            setMatches(res.data?.slice(0, 96))
+            console.log(res)
         }
         FetchData()
     },[])
-  return matches[0] ? (
+  return matches && matches[0] ? (
             <Wrapper>
                 {matches.map((match: any, index: any) => (
                     [0].includes(index) || index % 16 === 0 ? (
-                        <Match first match={match} index={index} />
+                        <Match first match={match} key={index} index={index} />
                     ) : (
-                        <Match match={match} index={index} />
+                        <Match match={match} key={index} index={index} />
                     )
                 ))}
             </Wrapper>
